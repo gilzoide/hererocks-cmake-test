@@ -12,6 +12,7 @@ build = {
 	variables = {
 		CMAKE_INSTALL_PREFIX = "$(PREFIX)",
 		LUADIR = "$(LUADIR)",
+		LUA_INCDIR = "$(LUA_INCDIR)",
 		LIBDIR = "$(LIBDIR)",
 		BINDIR = "$(BINDIR)",
 	}
