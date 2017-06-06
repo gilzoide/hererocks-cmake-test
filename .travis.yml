@@ -5,7 +5,7 @@ cache: pip
 addons:
   apt:
     packages:
-      - cmake
+      - cmake-data
 
 env:
   - LUA="lua 5.2"

@@ -9,7 +9,7 @@ configure_package_config_file(
 	INSTALL_DESTINATION "lib"
 )
 
-# e compila normal
+# verifica se tá no Travis da vida
 if($ENV{CI})
 	find_package(Lua CONFIG REQUIRED)
 else()
@@ -18,6 +18,7 @@ endif()
 
 message(STATUS "${LUA_INCLUDE_DIR} | ${LUA_LIBRARIES}")
 
+# e compila normal
 add_library(teste SHARED teste.c)
 target_include_directories(teste PUBLIC ${LUA_INCLUDE_DIR})
 target_link_libraries(teste ${LUA_LIBRARIES})
