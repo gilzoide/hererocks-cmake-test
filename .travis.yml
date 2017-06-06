@@ -1,8 +1,6 @@
 language: python
-
 cache: pip
 
-dist: trusty
 sudo: false
 
 env:

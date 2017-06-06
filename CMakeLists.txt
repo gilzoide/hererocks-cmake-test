@@ -1,5 +1,5 @@
 project(teste)
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 2.6)
 
 find_package(Lua QUIET)
 if(NOT Lua_FOUND)
@@ -7,8 +7,6 @@ if(NOT Lua_FOUND)
 	set(LUA_LIBRARIES ${LUALIB})
 	set(LUA_INCLUDE_DIR ${LUA_INCDIR})
 endif()
-
-message(STATUS "${LUA_INCLUDE_DIR} | ${LUA_LIBRARIES}")
 
 # e compila normal
 add_library(teste SHARED teste.c)
