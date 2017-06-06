@@ -2,10 +2,8 @@ language: python
 
 cache: pip
 
-addons:
-  apt:
-    packages:
-      - cmake-data
+dist: trusty
+sudo: false
 
 env:
   - LUA="lua 5.2"
