@@ -1,16 +1,17 @@
 project(teste)
 cmake_minimum_required(VERSION 2.8.8)
 
-# Magia pra funfar o Lua do Hererocks
-include(CMakePackageConfigHelpers)
-configure_package_config_file(
-    "Config.cmake.in"
-	"LuaConfig.cmake"
-	INSTALL_DESTINATION "lib"
-)
-
 # verifica se tá no Travis da vida
 if($ENV{CI})
+	# Magia pra funfar o Lua do Hererocks
+	include(CMakePackageConfigHelpers)
+	set(lua_config_path "${CMAKE_CURRENT_BINARY_DIR}/LuaConfig.cmake")
+	configure_package_config_file(
+		"Config.cmake.in"
+		"${lua_config_path}"
+		INSTALL_DESTINATION "lib"
+	)
+	set($ENV{Lua_DIR} ${lua_config_path})
 	find_package(Lua CONFIG REQUIRED)
 else()
 	find_package(Lua REQUIRED)
