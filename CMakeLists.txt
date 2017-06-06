@@ -1,12 +1,10 @@
 project(teste)
 cmake_minimum_required(VERSION 2.8.8)
 
-# verifica se tá no Travis da vida
-if($ENV{CI})
+find_package(Lua)
+if(NOT Lua_FOUND)
 	set(LUA_LIBRARIES ${LUALIB})
 	set(LUA_INCLUDE_DIR ${LUA_INCDIR})
-else()
-	find_package(Lua REQUIRED)
 endif()
 
 message(STATUS "${LUA_INCLUDE_DIR} | ${LUA_LIBRARIES}")
