@@ -1,8 +1,9 @@
 project(teste)
 cmake_minimum_required(VERSION 2.8.8)
 
-find_package(Lua)
+find_package(Lua QUIET)
 if(NOT Lua_FOUND)
+	message(STATUS "Couldn't find systemwide Lua installation, using Luarocks defined variables")
 	set(LUA_LIBRARIES ${LUALIB})
 	set(LUA_INCLUDE_DIR ${LUA_INCDIR})
 endif()
